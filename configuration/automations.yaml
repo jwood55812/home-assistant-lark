@@ -1,0 +1,91 @@
+#####################################################
+#           Aquarium Lights On/Off Daily     
+#####################################################     
+- id: AquariumLightsOnDaily
+  alias: Aquarium Lights On Daily
+  trigger:
+    - at: '10:30:00'
+      platform: time  
+  action:
+    - service: switch.turn_on
+      entity_id: switch.aquarium_lights
+- id: AquariumLightsOffDaily
+  alias: Aquarium Lights Off Daily
+  trigger:
+    - at: '20:00:00'
+      platform: time  
+  action:
+    - service: switch.turn_off
+      entity_id: switch.aquarium_lights
+#####################################################
+#             Porch Lights On/Off Daily   
+#####################################################   
+- id: PorchLightsSunrise
+  alias: Porch Lights off an hour after sunrise
+  trigger: 
+  - event: sunrise
+    offset: '1'
+    platform: sun
+  action:
+    - service: switch.turn_off
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_3
+- id: PorchLightsSunset
+  alias: Porch Lights on at sunset
+  trigger: 
+  - event: sunset
+    platform: sun
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_3     
+#####################################################
+#           Door Auto Locks 
+#####################################################   
+- id: FrontDoorAutoLock
+  alias: Front Door Auto Lock (3 min)
+  trigger: 
+  - entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+    platform: state
+    to: unlocked
+  action:
+    - delay: 00:03:00
+    - service: lock.lock
+      entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+#####################################################
+#              Plex Movie Time
+#####################################################        
+# - id: PlexPauseFadeIn
+  # alias: Plex Fade In Living Room on Pause
+  # trigger: 
+    # - platform: state
+      # entity_id: media_player.living_room
+      # from: 'playing'
+      # to: 'paused'
+  # condition:
+    # - condition: state
+      # entity_id: sun.sun
+      # state: 'below_horizon'
+  # action:
+    # - service: python_script.fade_in_light  
+      # data:
+        # entity_id: light.ge_12724_3way_dimmer_switch_level_4
+        # delay_in_sec: 1
+        # start_level_pct: 10
+        # end_level_pct: 60
+        # step_in_level_pct: 5
+#####################################################
+#           Presence Based Automations
+#####################################################               
+- id: jasonunlock
+  alias: Unlock the front door when Jason gets home
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.jasons_iphone
+      zone: zone.home
+      event: enter
+  action:
+    - service: lock.unlock
+      entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+    - service: notify.jasonprowl
+      data:
+        message: Woodford front door has been unlocked!
+        title: Front Door Unlock

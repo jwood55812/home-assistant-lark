@@ -1,0 +1,182 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret coord_latitude
+  longitude: !secret coord_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret coord_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret coord_timezone
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret api_password
+  #ssl_certificate: /config/certificate.pem
+  #ssl_key: /config/privkey.pem  
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  #base_url: https://192.168.2.100:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+#ios
+ios:
+
+#enable logging
+logger:
+
+#python scripting
+python_script:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+#notifications
+notify:
+  - name: jasonprowl 
+    platform: prowl
+    api_key: !secret jason_prowl_api
+  - name: beckyprowl
+    platform: prowl
+    api_key: !secret becky_prowl_api
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+#Ring Doorbell
+ring:
+    username: !secret ring_login
+    password: !secret ring_password
+    
+#ecobee
+ecobee:
+  api_key: !secret ecobee_api
+  
+#alarm control panel
+alarm_control_panel:
+  - platform: totalconnect
+    username: !secret totalconnect_user
+    password: !secret totalconnect_password
+
+binary_sensor:
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
+
+sensor:
+  - platform: ring
+    monitored_conditions:
+      - battery
+      - last_activity
+      - last_ding
+      - last_motion
+      - volume  
+  - platform: wunderground
+    api_key: !secret wunderground_api
+    monitored_conditions:
+      - alerts
+      - temp_f
+      - feelslike_f
+      - temp_high_1d_f
+      - temp_low_1d_f
+      - weather_1d
+      - precip_1d
+      - weather_1n
+
+# Zwave control
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+  polling_interval: 10000
+  device_config:
+    #master bedroom overhead
+    light.ge_12724_3way_dimmer_switch_level:
+      polling_intensity: 1      
+      #refresh_value: 2
+      #delay: 3
+    #master bathroom vanity
+    light.ge_12724_3way_dimmer_switch_level_2:
+      polling_intensity: 1   
+    #living room overhead downlights      
+    light.ge_12724_3way_dimmer_switch_level_4:
+      polling_intensity: 1    
+    #living room overhead fan
+    switch.ge_12722_onoff_relay_switch_switch_5:
+      polling_intensity: 1    
+    #kitchen eat in
+    switch.ge_12722_onoff_relay_switch_switch:
+      polling_intensity: 1  
+    #kitchen overhead flourescent      
+    switch.ge_12722_onoff_relay_switch_switch_2:  
+      polling_intensity: 1    
+    #dining room overhead  
+    light.ge_12724_3way_dimmer_switch_level_3:      
+      polling_intensity: 1  
+    #entryway overhead      
+    switch.ge_12722_onoff_relay_switch_switch_4:
+      polling_intensity: 1  
+    #downstairs hallway
+    light.ge_12724_3way_dimmer_switch_level_5:      
+      polling_intensity: 1   
+    #outside porch lights
+    switch.ge_12722_onoff_relay_switch_switch_3:      
+      polling_intensity: 1
+    #wemo mini plug
+    switch.christmas_accent:
+      polling_intensity: 1
+    #wemo mini plug
+    switch.christmas_tree:
+      polling_intensity: 1
+    #wemo full sized
+    switch.my_lamp:
+      polling_intensity: 1
+    #living room overhead wet bar
+    light.ge_12724_3way_dimmer_switch_level_6:
+      polling_intensity: 1
+         
+scene:
+    
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+zone: !include zones.yaml

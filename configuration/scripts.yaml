@@ -1,0 +1,85 @@
+'1514347776681':
+  alias: Night Time
+  sequence:
+  - alias: ''
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3
+    service: light.turn_off
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4
+    service: light.turn_off
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5
+    service: light.turn_off
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6
+    service: light.turn_off
+  - data:
+      entity_id: light.level
+    service: light.turn_off
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_2
+    service: switch.turn_off
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_4
+    service: switch.turn_off
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_5
+    service: switch.turn_off
+'1514432505548':
+  alias: All Lights On
+  sequence:
+  - alias: ''
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3
+    service: light.turn_on
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4
+    service: light.turn_on
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5
+    service: light.turn_on
+  - data:
+      entity_id: light.level
+    service: light.turn_on
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch
+    service: switch.turn_on
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_2
+    service: switch.turn_on
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_4
+    service: switch.turn_on
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_5
+    service: switch.turn_on
+'1514599812400':
+  alias: Movie Time
+  sequence:
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_5
+    service: switch.turn_off
+  - data:
+      brightness: '35'
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4
+    service: light.turn_on
+  - data:
+      brightness: '35'
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6
+    service: light.turn_on
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3
+    service: light.turn_off
+  - data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5
+    service: light.turn_off
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_2
+    service: switch.turn_off

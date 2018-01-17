@@ -1,0 +1,64 @@
+  masterbedroom:
+    name: Master
+    view: yes
+    entities:
+      - light.ge_12724_3way_dimmer_switch_level
+      - light.ge_12724_3way_dimmer_switch_level_2      
+
+  livingroom:
+    name: Living
+    view: yes    
+    entities:
+      - light.ge_12724_3way_dimmer_switch_level_4
+      - switch.ge_12722_onoff_relay_switch_switch_5
+      - light.ge_12724_3way_dimmer_switch_level_6
+      - light.level
+      - script.1514599812400
+
+  kitchen:
+    name: Kitchen
+    view: yes
+    entities:
+      - switch.ge_12722_onoff_relay_switch_switch
+      - switch.ge_12722_onoff_relay_switch_switch_2
+
+  diningroom:
+    name: Dining
+    view: yes    
+    entities:
+      - light.ge_12724_3way_dimmer_switch_level_3
+
+  downstairsentry:
+    name: Front Entry
+    view: yes    
+    entities:
+      - switch.ge_12722_onoff_relay_switch_switch_4
+      - light.ge_12724_3way_dimmer_switch_level_5
+      - lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+      
+  upstairsentry:
+    name: Upstairs Hallway
+    view: yes    
+    entities:
+      - light.white_bulb_outside_bathroom_1
+      - light.white_bulb_outside_bathroom_2
+      - light.white_bulb_outside_master_1
+      - light.white_bulb_outside_master_2
+
+  outdoor:
+    name: Outdoor
+    view: yes    
+    entities:
+      - switch.ge_12722_onoff_relay_switch_switch_3
+      
+  daily_forecast:
+    name: Weather Forecast
+    entities:
+      - sensor.pws_alerts
+      - sensor.pws_temp_f      
+      - sensor.pws_feelslike_f
+      - sensor.pws_temp_high_1d_f
+      - sensor.pws_temp_low_1d_f
+      - sensor.pws_weather_1d
+      - sensor.pws_precip_1d
+      - sensor.pws_weather_1n    

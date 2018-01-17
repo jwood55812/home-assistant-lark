@@ -1,0 +1,17 @@
+  - name: Home
+    latitude: !secret home_lat
+    longitude: !secret home_long
+    radius: !secret home_rad
+    icon: mdi:home
+    
+  - name: Jason Work
+    latitude: !secret work_lat
+    longitude: !secret work_long
+    radius: !secret work_rad
+    icon: mdi:briefcase
+    
+  - name: Ivy School
+    latitude: !secret e_school_lat
+    longitude: !secret e_school_long
+    radius: !secret e_school_rad
+    icon: mdi:bus-school  
