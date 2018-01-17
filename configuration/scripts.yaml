@@ -1,85 +1,232 @@
-'1514347776681':
+'downstairs_night_time':
   alias: Night Time
   sequence:
-  - alias: ''
+  - service: alarm_control_panel.alarm_arm_night
     data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_3
-    service: light.turn_off
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_4
-    service: light.turn_off
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_5
-    service: light.turn_off
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_6
-    service: light.turn_off
-  - data:
-      entity_id: light.level
-    service: light.turn_off
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch
-    service: switch.turn_off
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_2
-    service: switch.turn_off
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_4
-    service: switch.turn_off
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_5
-    service: switch.turn_off
-'1514432505548':
-  alias: All Lights On
+      entity_id: alarm_control_panel.total_connect
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_4 #entryway overhead
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_5 #living room fan
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_2 #kitchen flourescent
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch #kitchen eat in
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 50
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 50
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 50
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 50      
+  - delay: 00:00:07
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 40
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 40
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 40
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 40      
+  - delay: 00:00:07  
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 30      
+  - delay: 00:00:07  
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 20
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 20
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 20
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 20      
+  - delay: 00:00:07
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 0
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 0
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 0
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 0      
+'all_downstairs_lights_on':
+  alias: All Downstairs Lights On
   sequence:
-  - alias: ''
+  - service: light.turn_on
     data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_3
-    service: light.turn_on
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_4
-    service: light.turn_on
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_5
-    service: light.turn_on
-  - data:
-      entity_id: light.level
-    service: light.turn_on
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch
-    service: switch.turn_on
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_2
-    service: switch.turn_on
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_4
-    service: switch.turn_on
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_5
-    service: switch.turn_on
-'1514599812400':
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 70
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 70
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 70
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 07
+  - service: switch.turn_on
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_4 #entryway overhead
+  - service: switch.turn_on
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_5 #living room fan
+  - service: switch.turn_on
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_2 #kitchen flourescent
+  - service: switch.turn_on
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch #kitchen eat in      
+'movie_time':
   alias: Movie Time
   sequence:
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_5
-    service: switch.turn_off
-  - data:
-      brightness: '35'
-      entity_id: light.ge_12724_3way_dimmer_switch_level_4
-    service: light.turn_on
-  - data:
-      brightness: '35'
-      entity_id: light.ge_12724_3way_dimmer_switch_level_6
-    service: light.turn_on
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_3
-    service: light.turn_off
-  - data:
-      entity_id: light.ge_12724_3way_dimmer_switch_level_5
-    service: light.turn_off
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch
-    service: switch.turn_off
-  - data:
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_2
-    service: switch.turn_off
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_4 #entryway overhead
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_5 #living room fan
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch_2 #kitchen flourescent
+  - service: switch.turn_off
+    data:
+      entity_id: switch.ge_12722_onoff_relay_switch_switch #kitchen eat in
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 40
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 40
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 40
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 40      
+  - delay: 00:00:15
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 35
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 35
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 35
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 35      
+  - delay: 00:00:15 
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 30      
+  - delay: 00:00:15  
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 25
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 25
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 25
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 25      
+  - delay: 00:00:15
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_3 #dining room
+      brightness_pct: 20
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_4 #living room
+      brightness_pct: 20
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_6 #living room 2
+      brightness_pct: 20
+  - service: light.turn_on
+    data:
+      entity_id: light.ge_12724_3way_dimmer_switch_level_5 #downstairs hallway
+      brightness_pct: 20       

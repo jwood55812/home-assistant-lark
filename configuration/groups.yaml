@@ -61,4 +61,18 @@
       - sensor.pws_temp_low_1d_f
       - sensor.pws_weather_1d
       - sensor.pws_precip_1d
-      - sensor.pws_weather_1n    
+      - sensor.pws_weather_1n
+
+  down_climate:
+    name: Downstairs Climate
+    entities:
+      - climate.downstairs
+      
+  up_climate:
+    name: Upstairs Climate
+    entities:
+      - climate.upstairs
+      - sensor.craft_temperature
+      - sensor.kids_room_temperature
+      - sensor.master_temperature
+            

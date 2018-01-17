@@ -87,5 +87,5 @@
       entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
     - service: notify.jasonprowl
       data:
-        message: Woodford front door has been unlocked!
+        message: The front door has been unlocked!
         title: Front Door Unlock

@@ -74,6 +74,13 @@ notify:
   - name: beckyprowl
     platform: prowl
     api_key: !secret becky_prowl_api
+    
+#history graph
+#history_graph:
+#  gr1:
+#    name:
+#    entities:
+#    hours_to_show:
 
 # Text to speech
 tts:
@@ -81,6 +88,14 @@ tts:
 
 # Cloud
 cloud:
+
+#Apple TV
+apple_tv:
+  - host: 192.168.2.103
+    login_id: !secret apple_tv_lr_login
+    name: Living Room Apple TV
+    start_off: true
+    credentials: !secret apple_tv_lr_cred
 
 #Ring Doorbell
 ring:
