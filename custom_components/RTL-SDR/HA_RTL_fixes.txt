@@ -1,0 +1,17 @@
+#To fix RTL-SDR freq
+  #Copy rtl2mqtt.sh from Docker image to host
+  #docker cp rtl2mqtt:/scripts/rtl2mqtt.sh /mnt/cache/local/hass_extras/rtl2mqtt.sh
+  
+  #Modify rtl2mqtt.sh
+    #vi /mnt/cache/local/hass_extras/rtl2mqtt.sh
+    #Scroll to the correct line (17) and change to be "/usr/local/bin/rtl_433 -f 344975000 -F json -U |  while read line"
+      #‘I’ to insert
+      #‘x’ when in Command Mode (ESC) to delete old characters
+      #‘:x” when in Command Mode (ESC) to save and quit
+    #Change the thread it posts to homeassistant/sensor/honeywell
+
+  #Push back to Docker image using
+  #docker cp /mnt/cache/local/hass_extras/rtl2mqtt.sh rtl2mqtt:/scripts/rtl2mqtt.sh 
+
+  
+

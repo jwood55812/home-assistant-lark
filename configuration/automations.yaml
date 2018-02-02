@@ -1,55 +1,55 @@
 #####################################################
 #           Aquarium Lights On/Off Daily     
 #####################################################     
-- id: AquariumLightsOnDaily
-  alias: Aquarium Lights On Daily
-  trigger:
-    - at: '10:30:00'
-      platform: time  
-  action:
-    - service: switch.turn_on
-      entity_id: switch.aquarium_lights
-- id: AquariumLightsOffDaily
-  alias: Aquarium Lights Off Daily
-  trigger:
-    - at: '20:00:00'
-      platform: time  
-  action:
-    - service: switch.turn_off
-      entity_id: switch.aquarium_lights
+#- id: AquariumLightsOnDaily
+#  alias: Aquarium Lights On Daily
+#  trigger:
+#    - at: '10:30:00'
+#      platform: time  
+#  action:
+#    - service: switch.turn_on
+#      entity_id: switch.aquarium_lights
+#- id: AquariumLightsOffDaily
+#  alias: Aquarium Lights Off Daily
+#  trigger:
+#    - at: '20:00:00'
+#      platform: time  
+#  action:
+#    - service: switch.turn_off
+#      entity_id: switch.aquarium_lights
 #####################################################
 #             Porch Lights On/Off Daily   
 #####################################################   
-- id: PorchLightsSunrise
-  alias: Porch Lights off an hour after sunrise
-  trigger: 
-  - event: sunrise
-    offset: '1'
-    platform: sun
-  action:
-    - service: switch.turn_off
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_3
-- id: PorchLightsSunset
-  alias: Porch Lights on at sunset
-  trigger: 
-  - event: sunset
-    platform: sun
-  action:
-    - service: switch.turn_on
-      entity_id: switch.ge_12722_onoff_relay_switch_switch_3     
+#- id: PorchLightsSunrise
+#  alias: Porch Lights off an hour after sunrise
+#  trigger: 
+#  - event: sunrise
+#    offset: '1'
+#   platform: sun
+#  action:
+#    - service: switch.turn_off
+#      entity_id: switch.ge_12722_onoff_relay_switch_switch_3
+#- id: PorchLightsSunset
+#  alias: Porch Lights on at sunset
+#  trigger: 
+#  - event: sunset
+#    platform: sun
+#  action:
+#    - service: switch.turn_on
+#      entity_id: switch.ge_12722_onoff_relay_switch_switch_3     
 #####################################################
 #           Door Auto Locks 
 #####################################################   
-- id: FrontDoorAutoLock
-  alias: Front Door Auto Lock (3 min)
-  trigger: 
-  - entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
-    platform: state
-    to: unlocked
-  action:
-    - delay: 00:03:00
-    - service: lock.lock
-      entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+#- id: FrontDoorAutoLock
+#  alias: Front Door Auto Lock (3 min)
+#  trigger: 
+#  - entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+#    platform: state
+#    to: unlocked
+#  action:
+#    - delay: 00:03:00
+#    - service: lock.lock
+#      entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
 #####################################################
 #              Plex Movie Time
 #####################################################        

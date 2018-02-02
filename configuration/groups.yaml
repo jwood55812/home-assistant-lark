@@ -75,4 +75,18 @@
       - sensor.craft_temperature
       - sensor.kids_room_temperature
       - sensor.master_temperature
-            
+      
+  doors_and_windows:
+    name: Honeywell Sensors
+    entities:
+      - sensor.living_room_window_1
+      - sensor.living_room_window_2
+      - sensor.living_room_window_3
+      - sensor.office_window
+      - sensor.dining_room_window
+      - sensor.dining_room_window_2
+      - sensor.kitchen_window
+      - sensor.kitchen_window_2
+      - sensor.front_door
+      - sensor.back_door
+      - sensor.garage_door

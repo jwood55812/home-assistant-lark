@@ -31,7 +31,22 @@
   #Same steps as above to pull file
   
   #change following line
-  #"""self.arm(ARM_TYPE_STAY_NIGHT, location_name)"""
+  #self.arm(ARM_TYPE_STAY_NIGHT, location_name)
   
   #to
   #self.arm(ARM_TYPE_STAY_INSTANT, location_name)
+  
+#to remap 'ARM_TYPE_STAY_INSTANT' on the front end
+  #Use below command to pull the const.py file
+  #docker cp home-assistant:/usr/src/app/homeassistant/components/alarm_control_panel/totalconnect.py /mnt/cache/local/hass_extras/totalconnect.py
+  
+  #modify the file
+  #add a new line underneath 'def update(self):'
+  #        elif status == self._client.ARMED_STAY_INSTANT:
+  #         state = STATE_ALARM_ARMED_NIGHT
+  
+  #Push back to Docker image using
+  #docker cp /mnt/cache/local/hass_extras/totalconnect.py home-assistant:/usr/src/app/homeassistant/components/alarm_control_panel/totalconnect.py
+
+  
+

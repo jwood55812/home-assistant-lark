@@ -115,8 +115,6 @@ class TotalConnectClient:
     def arm_stay_night(self, location_name=False):
         """Arm the system (Stay - Night)."""
 
-        """self.arm(ARM_TYPE_STAY_NIGHT, location_name)"""
-        """changing this so night arm really does instant stay"""
         self.arm(ARM_TYPE_STAY_INSTANT, location_name)
 
     def arm(self, arm_type, location_name=False):
@@ -143,10 +141,8 @@ class TotalConnectClient:
     def get_security_panel_device_id(self, location):
         """Find the device id of the security panel."""
         deviceId = False
-        currdevice = 1
         for device in location['DeviceList']['DeviceInfoBasic']:
-            logging.info("Found device *" + device['DeviceName'] + "*.  It is panel number " + str(currdevice) + ".")
-            if device['DeviceName'] == 'Security Panel' or device['DeviceName'] == 'Security System' or device['DeviceName'] == 'Lynx Touch-WiFi':
+            if device['DeviceName'] == 'Security Panel' or device['DeviceName'] == 'Lynx Touch-WiFi':
                 deviceId = device['DeviceID']
 
         if deviceId is False:
