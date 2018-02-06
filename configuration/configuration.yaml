@@ -238,36 +238,40 @@ zwave:
   polling_interval: 10000
   device_config:
     #master bedroom overhead
-    light.ge_12724_3way_dimmer_switch_level:
+    light.master_bedroom_level:
       polling_intensity: 1      
-      #refresh_value: 2
-      #delay: 3
     #master bathroom vanity
-    light.ge_12724_3way_dimmer_switch_level_2:
+    light.master_bathroom_level:
       polling_intensity: 1   
     #living room overhead downlights      
-    light.ge_12724_3way_dimmer_switch_level_4:
+    light.living_room_1_level:
       polling_intensity: 1    
-    #living room overhead fan
-    switch.ge_12722_onoff_relay_switch_switch_5:
-      polling_intensity: 1    
-    #kitchen eat in
-    switch.ge_12722_onoff_relay_switch_switch:
-      polling_intensity: 1  
-    #kitchen overhead flourescent      
-    switch.ge_12722_onoff_relay_switch_switch_2:  
-      polling_intensity: 1    
+    #living room overhead downlights wet bar      
+    light.living_room_2_level:
+      polling_intensity: 1          
     #dining room overhead  
-    light.ge_12724_3way_dimmer_switch_level_3:      
-      polling_intensity: 1  
-    #entryway overhead      
-    switch.ge_12722_onoff_relay_switch_switch_4:
+    light.dining_room_level:      
       polling_intensity: 1  
     #downstairs hallway
-    light.ge_12724_3way_dimmer_switch_level_5:      
+    light.downstairs_hallway_level:      
       polling_intensity: 1   
+    #living room overhead fan
+    switch.living_room_fan_switch:
+      polling_intensity: 1    
+    #kitchen eat in
+    switch.eat_in_switch:
+      polling_intensity: 1  
+    #kitchen overhead flourescent      
+    switch.kitchen_switch:  
+      polling_intensity: 1    
+    #entryway overhead      
+    switch.entryway_switch:
+      polling_intensity: 1  
     #outside porch lights
-    switch.ge_12722_onoff_relay_switch_switch_3:      
+    switch.front_porch_switch:      
+      polling_intensity: 1
+    #mudroom switch
+    switch.mudroom_switch:
       polling_intensity: 1
     #wemo mini plug
     switch.christmas_accent:
@@ -278,9 +282,7 @@ zwave:
     #wemo full sized
     switch.my_lamp:
       polling_intensity: 1
-    #living room overhead wet bar
-    light.ge_12724_3way_dimmer_switch_level_6:
-      polling_intensity: 1
+
          
 scene:
     
