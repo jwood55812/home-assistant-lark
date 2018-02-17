@@ -1,0 +1,52 @@
+#To fix TotalConnect Device Name Problem
+  #Copy TotalConnectClient.py from Docker image to host
+  #docker cp home-assistant:/usr/local/lib/python3.6/site-packages/total_connect_client/TotalConnectClient.py /mnt/cache/local/hass_extras/TotalConnectClient.py
+  
+  #Modify TotalConnectClient.py
+    #vi /mnt/cache/local/hass_extras/TotalConnectClient.py
+    #Scroll to the correct line (145) (if device[‘DevieName’] ==) and add in ‘Lynx Touch-WiFi’ as option
+      #‘I’ to insert
+      #‘x’ when in Command Mode (ESC) to delete old characters
+      #‘:x” when in Command Mode (ESC) to save and quit
+
+  #To find the device name I needed to modify the sub to print out each name it iterated across.  Mine turned out to be ‘Lynx Touch-WiFi’ – see below code snippet
+  #    def get_security_panel_device_id(self, location):
+  #        """Find the device id of the security panel."""
+  #        deviceId = False
+  #        currdevice = 1
+  #        for device in location['DeviceList']['DeviceInfoBasic']:
+  #            logging.info("Found device *" + device['DeviceName'] + "*.  It is panel number " + str(currdevice) + ".")
+  #            if device['DeviceName'] == 'Security Panel' or device['DeviceName'] == 'Security System' or device['DeviceName'] == 'Lynx Touch-WiFi':
+  #                deviceId = device['DeviceID']
+  #
+  #        if deviceId is False:
+  #            raise Exception('No security panel found')
+  #
+  #        return deviceId
+
+  #Push back to Docker image using
+  #docker cp /mnt/cache/local/hass_extras/TotalConnectClient.py home-assistant:/usr/local/lib/python3.6/site-packages/total_connect_client/TotalConnectClient.py 
+
+#To remap alarm_arm_night to total connect armed stay instant
+  #Same steps as above to pull file
+  
+  #change following line
+  #self.arm(ARM_TYPE_STAY_NIGHT, location_name)
+  
+  #to
+  #self.arm(ARM_TYPE_STAY_INSTANT, location_name)
+  
+#to remap 'ARM_TYPE_STAY_INSTANT' on the front end
+  #Use below command to pull the const.py file
+  #docker cp home-assistant:/usr/src/app/homeassistant/components/alarm_control_panel/totalconnect.py /mnt/cache/local/hass_extras/totalconnect.py
+  
+  #modify the file
+  #add a new line underneath 'def update(self):'
+  #        elif status == self._client.ARMED_STAY_INSTANT:
+  #         state = STATE_ALARM_ARMED_NIGHT
+  
+  #Push back to Docker image using
+  #docker cp /mnt/cache/local/hass_extras/totalconnect.py home-assistant:/usr/src/app/homeassistant/components/alarm_control_panel/totalconnect.py
+
+  
+

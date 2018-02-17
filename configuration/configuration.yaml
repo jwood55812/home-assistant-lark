@@ -54,6 +54,14 @@ logbook:
 #ios
 ios:
 
+#device trackers
+device_tracker:
+  - platform: ddwrt
+    host: !secret router_address
+    username: !secret router_login
+    password: !secret router_pwd
+    track_new_devices: no
+
 #enable logging
 logger:
   default: info
