@@ -18,7 +18,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
-
+ 
 # Enables configuration UI
 config:
 
@@ -61,6 +61,7 @@ device_tracker:
     username: !secret router_login
     password: !secret router_pwd
     track_new_devices: no
+    interval: 5
 
 #enable logging
 logger:

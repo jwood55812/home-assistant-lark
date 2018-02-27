@@ -75,17 +75,17 @@
 #####################################################
 #           Presence Based Automations
 #####################################################               
-- id: jasonunlock
-  alias: Unlock the front door when Jason gets home
-  trigger:
-    - platform: zone
-      entity_id: device_tracker.jasons_iphone
-      zone: zone.home
-      event: enter
-  action:
-    - service: lock.unlock
-      entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
-    - service: notify.jasonprowl
-      data:
-        message: The front door has been unlocked!
-        title: Front Door Unlock
+#- id: jasonunlock
+# alias: Unlock the front door when Jason gets home
+# trigger:
+#  - platform: zone
+#    entity_id: device_tracker.jasons_iphone
+#    zone: zone.home
+#    event: enter
+# action:
+#  - service: lock.unlock
+#    entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+#  - service: notify.jasonprowl
+#    data:
+#      message: The front door has been unlocked!
+#      title: Front Door Unlock
