@@ -1,3 +1,4 @@
+# Friendly Names
 media_player.unnamed_device:
   friendly_name: Living Room TV
 zwave.linear_unknown_type4744_id3530:
@@ -28,3 +29,66 @@ switch.front_porch_switch:
   friendly_name: Front Porch
 switch.mudroom_switch:
   friendly_name: Mudroom
+# Motion Sensors we don't need to see
+sensor.mudroom_motion_alarm_level:
+  hidden: true
+sensor.mudroom_motion_alarm_type:
+  hidden: true
+sensor.mudroom_motion_burglar:
+  hidden: true  
+sensor.mudroom_motion_sourcenodeid:
+  hidden: true
+sensor.alarm_level_2:
+  hidden: true
+sensor.alarm_type_2:
+  hidden: true
+sensor.ge_zw6302_portable_smart_motion_sensor_burglar_2:
+  hidden: true
+sensor.ge_zw6302_portable_smart_motion_sensor_sourcenodeid_2:
+  hidden: true
+binary_sensor.sensor_2:
+  hidden: true
+# Garage Door sensors hidden for now
+sensor.linear_unknown_type4744_id3530_access_control_2:
+  hidden: true
+sensor.linear_unknown_type4744_id3530_alarm_level_2:
+  hidden: true
+sensor.linear_unknown_type4744_id3530_alarm_type_2:
+  hidden: true
+sensor.linear_unknown_type4744_id3530_burglar_2:
+  hidden: true
+sensor.linear_unknown_type4744_id3530_sourcenodeid_2:
+  hidden: true
+# Front Door Additional Sensors
+sensor.schlage_be469nxcen_touchscreen_deadbolt_access_control:
+  hidden: true
+sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_level:
+  hidden: true
+sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type:
+  hidden: true
+sensor.schlage_be469nxcen_touchscreen_deadbolt_burglar:
+  hidden: true
+sensor.schlage_be469nxcen_touchscreen_deadbolt_power_management:
+  hidden: true
+sensor.schlage_be469nxcen_touchscreen_deadbolt_sourcenodeid:
+  hidden: true
+sensor.schlage_be469nxcen_touchscreen_deadbolt_system:
+  hidden: true
+# Input Booleans that are used to drive automations
+input_boolean.nr_alldownstairs100:
+  hidden: true
+input_boolean.nr_alldownstairs75:
+  hidden: true
+input_boolean.nr_alldownstairs50:
+  hidden: true
+input_boolean.nr_alldownstairs25:
+  hidden: true
+input_boolean.nr_movietime:
+  hidden: true
+input_boolean.nr_nighttime:
+  hidden: true
+# Ecobee Weather
+weather.downstairs:
+  hidden: true
+weather.upstairs:
+  hidden: true

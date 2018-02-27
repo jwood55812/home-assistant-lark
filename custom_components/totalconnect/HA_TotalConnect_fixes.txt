@@ -24,17 +24,15 @@
   #
   #        return deviceId
 
-  #Push back to Docker image using
-  #docker cp /mnt/cache/local/hass_extras/TotalConnectClient.py home-assistant:/usr/local/lib/python3.6/site-packages/total_connect_client/TotalConnectClient.py 
-
-#To remap alarm_arm_night to total connect armed stay instant
-  #Same steps as above to pull file
-  
   #change following line
   #self.arm(ARM_TYPE_STAY_NIGHT, location_name)
   
   #to
   #self.arm(ARM_TYPE_STAY_INSTANT, location_name)
+  
+  #Push back to Docker image using
+  #docker cp /mnt/cache/local/hass_extras/TotalConnectClient.py home-assistant:/usr/local/lib/python3.6/site-packages/total_connect_client/TotalConnectClient.py
+
   
 #to remap 'ARM_TYPE_STAY_INSTANT' on the front end
   #Use below command to pull the const.py file

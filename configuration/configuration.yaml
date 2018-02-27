@@ -129,10 +129,16 @@ alarm_control_panel:
     password: !secret totalconnect_password
 
 binary_sensor:
-  - platform: ring
-    monitored_conditions:
-      - ding
-      - motion
+#  - platform: ring
+#    monitored_conditions:
+#      - ding
+#      - motion
+  - platform: template
+    sensors:
+      master_bath_motion:
+        # GE Z-Wave Plus Wireless Smart Motion Sensor - Model 34193 (ZW6302)
+        friendly_name: 'Master Bathroom Motion'
+        value_template: "{{ states.sensor.ge_zw6302_portable_smart_motion_sensor_burglar_2 == '8'}}"
 
 sensor:
   - platform: ring
@@ -141,7 +147,6 @@ sensor:
       - last_activity
       - last_ding
       - last_motion
-      - volume  
   - platform: wunderground
     api_key: !secret wunderground_api
     monitored_conditions:
@@ -158,37 +163,37 @@ sensor:
     name: "Back Door"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 570765) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 570765) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 570765) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 570765) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.back_door.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Garage Door"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 968216) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 968216) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 968216) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 968216) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.garage_door.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Front Door"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 528831) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 528831) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 528831) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 528831) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.front_door.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Living Room Window 1"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 455187) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 455187) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 455187) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 455187) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.living_room_window_1.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Living Room Window 2"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 655210) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 655210) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 655210) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 655210) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.living_room_window_2.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Living Room Window 3"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 443393) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 443393) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 443393) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 443393) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.living_room_window_3.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Kitchen Window"
@@ -200,25 +205,25 @@ sensor:
     name: "Kitchen Window 2"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 402860) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 402860) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 402860) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 402860) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window_2.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Dining Room Window"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 364980) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 364980) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 364980) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 364980) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.dining_room_window.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Dining Room Window 2"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 935692) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 935692) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 935692) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 935692) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.dining_room_window_2.state}} {% endif %}'
   - platform: mqtt
     state_topic: "homeassistant/sensor/honeywell"
     name: "Office Window"
     qos: 0
     device_class: opening
-    value_template: '{% if (value_json.id is equalto 282194) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 282194) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.kitchen_window.state}} {% endif %}'
+    value_template: '{% if (value_json.id is equalto 282194) and (value_json.event is equalto 160) %} open {% elif (value_json.id is equalto 282194) and (value_json.event is equalto 128) %} closed {% else %} {{states.sensor.office_window.state}} {% endif %}'
 input_boolean:
   nr_movietime:
     name: Movie Time workflow

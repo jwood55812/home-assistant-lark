@@ -2,54 +2,47 @@
     name: Master
     view: yes
     entities:
-      - light.ge_12724_3way_dimmer_switch_level
-      - light.ge_12724_3way_dimmer_switch_level_2      
+      - light.master_bedroom_overhead_level
+      - light.master_bathroom_level
+      - light.master_bathroom_toilet
+      - binary_sensor.master_bath_motion
 
   livingroom:
     name: Living
     view: yes    
     entities:
-      - light.ge_12724_3way_dimmer_switch_level_4
-      - switch.ge_12722_onoff_relay_switch_switch_5
-      - light.ge_12724_3way_dimmer_switch_level_6
-      - light.level
-      - script.1514599812400
+      - light.living_room_1_level
+      - light.living_room_2_level
+      - switch.living_room_fan_switch
+      - script.movie_time
+      - media_player.living_room_apple_tv
 
   kitchen:
     name: Kitchen
     view: yes
     entities:
-      - switch.ge_12722_onoff_relay_switch_switch
-      - switch.ge_12722_onoff_relay_switch_switch_2
+      - switch.kitchen_switch
+      - switch.eat_in_switch
 
   diningroom:
     name: Dining
     view: yes    
     entities:
-      - light.ge_12724_3way_dimmer_switch_level_3
+      - light.dining_room_level
 
   downstairsentry:
     name: Front Entry
     view: yes    
     entities:
-      - switch.ge_12722_onoff_relay_switch_switch_4
-      - light.ge_12724_3way_dimmer_switch_level_5
-      - lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+      - switch.front_porch_switch
+      - switch.entryway_switch
+      - light.downstairs_hallway_level
+      - lock.front_door_deadbolt_locked
       
   upstairsentry:
     name: Upstairs Hallway
     view: yes    
     entities:
-      - light.white_bulb_outside_bathroom_1
-      - light.white_bulb_outside_bathroom_2
-      - light.white_bulb_outside_master_1
-      - light.white_bulb_outside_master_2
-
-  outdoor:
-    name: Outdoor
-    view: yes    
-    entities:
-      - switch.ge_12722_onoff_relay_switch_switch_3
       
   daily_forecast:
     name: Weather Forecast
