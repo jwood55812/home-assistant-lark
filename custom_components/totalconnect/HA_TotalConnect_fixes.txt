@@ -48,3 +48,33 @@
 
   
 
+#NEW FIXES BELOW
+
+#Copy const.py from Docker image to host
+  #docker cp home-assistant:/usr/src/app/homeassistant/const.py /mnt/cache/local/hass_extras/const.py
+  #docker cp /mnt/cache/local/hass_extras/const.py home-assistant:/usr/src/app/homeassistant/const.py
+  #docker cp home-assistant:/usr/src/app/homeassistant/components/alarm_control_panel/__init__.py /mnt/cache/local/hass_extras/__init__.py
+  #docker cp /mnt/cache/local/hass_extras/__init__.py home-assistant:/usr/src/app/homeassistant/components/alarm_control_panel/__init__.py
+
+  #update const.py to include the following
+    #STATE_ALARM_ARMED_HOME_INSTANT = 'armed_home_instant'
+    #STATE_ALARM_ARMED_AWAY_INSTANT = 'armed_away_instant'
+
+
+  ##update totalconnect.py to include the following
+    #import additional from const.py - STATE_ALARM_ARMED_HOME_INSTANT,STATE_ALARM_ARMED_AWAY_INSTANT)
+
+    #add in new options under def update
+    #   elif status == self._client.ARMED_AWAY_INSTANT:
+            state = STATE_ALARM_ARMED_AWAY_INSTANT
+        elif status == self._client.ARMED_STAY_INSTANT:
+            state = STATE_ALARM_ARMED_HOME_INSTANT
+
+    #add in new function to arm instant
+    #def alarm_arm_home_instant(self, code=None):
+        """Send arm stay instant command."""
+        self._client.arm_stay_instant()
+
+    def alarm_arm_away_instant(self, code=None):
+        """Send arm away instant command."""
+        self._client.arm_away_instant()

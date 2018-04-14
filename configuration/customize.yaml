@@ -92,3 +92,26 @@ weather.downstairs:
   hidden: true
 weather.upstairs:
   hidden: true
+# Unraid Server Icons
+sensor.parity_sdk:
+  icon: mdi:thermometer
+sensor.disk_1_sdl:
+  icon: mdi:thermometer
+sensor.disk_2_sdj:
+  icon: mdi:thermometer
+sensor.disk_3_sdf:
+  icon: mdi:thermometer
+sensor.disk_4_sdd:
+  icon: mdi:thermometer
+sensor.disk_5_sdh:
+  icon: mdi:thermometer
+sensor.disk_6_sdb:
+  icon: mdi:thermometer
+sensor.disk_7_sde:
+  icon: mdi:thermometer
+sensor.disk_8_sdg:
+  icon: mdi:thermometer
+sensor.disk_9_sdc:
+  icon: mdi:thermometer
+sensor.cache_sdi:
+  icon: mdi:thermometer
