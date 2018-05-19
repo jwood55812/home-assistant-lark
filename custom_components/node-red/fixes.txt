@@ -1,0 +1,2 @@
+npm uninstall node-red-contrib-home-assistant@0.3.0
+npm install node-red-contrib-home-assistant@0.2.1

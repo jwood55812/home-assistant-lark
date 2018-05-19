@@ -12,6 +12,9 @@ homeassistant:
   time_zone: !secret coord_timezone
   # Customization file
   customize: !include customize.yaml
+  # whitelisted dirs for file sensors
+  whitelist_external_dirs:
+    - /config/hddtemps/  
 
 # Show links to resources in log and frontend
 #introduction:
@@ -21,6 +24,11 @@ frontend:
  
 # Enables configuration UI
 config:
+
+# recorder to mariadb instance
+recorder:
+  purge_keep_days: 60
+  db_url: !secret mariadb_logger_url
 
 http:
   # Secrets are defined in the file secrets.yaml
@@ -156,6 +164,7 @@ sensor:
       - last_motion
   - platform: wunderground
     api_key: !secret wunderground_api
+    unit_of_measurement: '°F'   
     monitored_conditions:
       - alerts
       - temp_f
@@ -167,48 +176,38 @@ sensor:
       - weather_1n
   - platform: file
     name: Parity (sdk)
-    file_path: /config/hddtemps/sdk_parity.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sdk_parity.txt 
   - platform: file
     name: Disk 1 (sdl)
-    file_path: /config/hddtemps/sdl_disk1.txt
-    unit_of_measurement: '°C'   
+    file_path: /config/hddtemps/sdl_disk1.txt   
   - platform: file
     name: Disk 2 (sdj)
-    file_path: /config/hddtemps/sdj_disk2.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sdj_disk2.txt   
   - platform: file
     name: Disk 3 (sdf)
-    file_path: /config/hddtemps/sdf_disk3.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sdf_disk3.txt    
   - platform: file
     name: Disk 4 (sdd)
-    file_path: /config/hddtemps/sdd_disk4.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sdd_disk4.txt  
   - platform: file
     name: Disk 5 (sdh)
-    file_path: /config/hddtemps/sdh_disk5.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sdh_disk5.txt   
   - platform: file
     name: Disk 6 (sdb)
-    file_path: /config/hddtemps/sdb_disk6.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sdb_disk6.txt   
   - platform: file
     name: Disk 7 (sde)
-    file_path: /config/hddtemps/sde_disk7.txt
-    unit_of_measurement: '°C'
+    file_path: /config/hddtemps/sde_disk7.txt   
   - platform: file
     name: Disk 8 (sdg)
-    file_path: /config/hddtemps/sdg_disk8.txt
-    unit_of_measurement: '°C'    
+    file_path: /config/hddtemps/sdg_disk8.txt   
   - platform: file
     name: Disk 9 (sdc)
-    file_path: /config/hddtemps/sdc_disk9.txt
-    unit_of_measurement: '°C'  
+    file_path: /config/hddtemps/sdc_disk9.txt    
   - platform: file
     name: Cache (sdi)
-    file_path: /config/hddtemps/sdi_cache.txt
-    unit_of_measurement: '°C'      
+    file_path: /config/hddtemps/sdi_cache.txt    
+
 #  - platform: mqtt
 #    state_topic: "homeassistant/sensor/honeywell"
 #    name: "Back Door"

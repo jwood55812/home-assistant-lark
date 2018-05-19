@@ -94,24 +94,35 @@ weather.upstairs:
   hidden: true
 # Unraid Server Icons
 sensor.parity_sdk:
-  icon: mdi:thermometer
+  icon: mdi:thermometer    
+  unit_of_measurement: 'C'     
 sensor.disk_1_sdl:
-  icon: mdi:thermometer
+  icon: mdi:thermometer    
+  unit_of_measurement: 'C'  
 sensor.disk_2_sdj:
-  icon: mdi:thermometer
+  icon: mdi:thermometer       
+  unit_of_measurement: 'C'
 sensor.disk_3_sdf:
-  icon: mdi:thermometer
+  icon: mdi:thermometer    
+  unit_of_measurement: 'C'  
 sensor.disk_4_sdd:
-  icon: mdi:thermometer
+  icon: mdi:thermometer    
+  unit_of_measurement: 'C'  
 sensor.disk_5_sdh:
-  icon: mdi:thermometer
+  icon: mdi:thermometer   
+  unit_of_measurement: 'C'
 sensor.disk_6_sdb:
-  icon: mdi:thermometer
+  icon: mdi:thermometer    
+  unit_of_measurement: 'C'  
 sensor.disk_7_sde:
-  icon: mdi:thermometer
+  icon: mdi:thermometer    
+  unit_of_measurement: 'C'  
 sensor.disk_8_sdg:
-  icon: mdi:thermometer
+  icon: mdi:thermometer  
+  unit_of_measurement: 'C'
 sensor.disk_9_sdc:
-  icon: mdi:thermometer
+  icon: mdi:thermometer   
+  unit_of_measurement: 'C'  
 sensor.cache_sdi:
-  icon: mdi:thermometer
+  icon: mdi:thermometer  
+  unit_of_measurement: 'C'
